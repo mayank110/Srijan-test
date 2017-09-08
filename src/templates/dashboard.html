@@ -1,0 +1,53 @@
+<div class="main-div">
+  <div class="right-align">
+    <a [routerLink]="['/student/add']" class="marginleft1px" >
+      <button class="add-button">Add New Record</button>
+    </a>
+  </div>
+   <div class="">
+      <table class="item-table" align="center" width="90%">
+         <thead class="table-head">
+            <tr>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Roll Number</th>
+               <th>Address</th>
+               <th>Section</th>
+               <th>Action</th>
+            </tr>
+         </thead>
+         <!-- <h1>{{studentData?.length}}</h1> -->
+         <tbody *ngIf=" studentData?.length > 0 " align="center">
+            <tr *ngFor="let item of studentData" draggable [dragClass]="'active'" [dragScope]="'delete'" [dragData]="item">
+               <td>{{ item.firstName }}</td>
+               <td>{{ item.lastName }}</td>
+               <td>{{ item.rollNo }}</td>
+               <td>{{ item.address }}</td>
+               <td>{{ item.contact }}</td>
+               <td>{{ item.section }}</td>
+               <td>
+                  <a [routerLink]="['/student/edit', item.id ]" class="marginleft1px" >
+                     <button value="Update" class="update-button">Update</button>
+                  </a>
+               </td>
+            </tr>
+         </tbody>
+         <tbody *ngIf="items?.length == 0"> 
+            <tr><td>No record found.</td></tr>                            
+         </tbody>
+      </table>
+   </div>
+     <div>
+     <div class="drop-delete-div card card-inverse card-primary mb-3 text-center" droppable
+      [dragHintClass]="'drag-hint-scale'" 
+      [dragOverClass]="'bg-danger'"
+      [dropScope]="'delete'" 
+      (onDrop)="onDeleteDrop($event)">
+      <div class="card-block">
+          <blockquote class="card-blockquote">
+            <h4 class="card-title"><i class="fa fa-trash fontsize35" aria-hidden="true"></i> Drop to Delete</h4>
+          </blockquote>
+      </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.main-div{
+	border: 1px solid;
+    width: 40%;
+    margin: 50px auto;
+}
+.red {
+	color: red;
+}
+.form-label {
+	width: 30%;
+	float: left;
+	padding: 5px 0px;
+}
+.form-label label {
+	padding-left: 10px;
+}
+.form-element {
+	width: 70%;
+	padding: 5px 0px;
+	float: left;
+}
+.alert-danger {
+	color: red;
+}
+.form-group {
+	width: 100%;
+
+}
+.form-group:after ,.form-group:before{
+	display: table;
+	clear: both;
+	content: "";
+}
+.btn-success {
+	padding: 5px;
+	border-radius: 20px ;
+	background-color: #d6314c;
+	color: #fff;
+	cursor: pointer;
+}
+.cancel-button-modify {
+	border-radius: 20px ;
+	text-decoration: none;
+	padding: 5px;
+	background-color: #e5e5e5;
+	color: #333;
+	cursor: pointer;
+}

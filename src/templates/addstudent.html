@@ -1,0 +1,82 @@
+<div class="main-div">
+    <form [formGroup]="addStudentEntityForm" novalidate (ngSubmit)="save(addStudentEntityForm.value, addStudentEntityForm.valid)">
+        <div class="form-group">
+            <div class="form-label">
+                <label>First Name</label>
+                <sup class="red">*</sup>
+            </div>
+            <div class="form-element">
+                <input type="text" formControlName="firstName" [ngClass]="{'red-border-class': addStudentEntityForm.controls.firstName.errors && (addStudentEntityForm.controls.firstName.dirty||addStudentEntityForm.controls.firstName.touched) }" (change) = "addStudentEntityForm.controls.firstName.setValue(addStudentEntityForm.controls.firstName.value.trim())">
+            </div>
+            <div [hidden]="addStudentEntityForm.controls.firstName.valid || (addStudentEntityForm.controls.firstName.pristine && !submitted)" class="alert alert-danger clear">
+                <div>First Name is required.</div>
+            </div>
+        </div>  
+        <div class="form-group">
+            <div class="form-label">
+                <label>Last Name</label>
+                <sup class="red">*</sup>
+            </div>
+            <div class="form-element">
+                <input type="text" formControlName="lastName" [ngClass]="{'red-border-class': addStudentEntityForm.controls.lastName.errors && (addStudentEntityForm.controls.lastName.dirty||addStudentEntityForm.controls.lastName.touched) }" (change) = "addStudentEntityForm.controls.lastName.setValue(addStudentEntityForm.controls.lastName.value.trim())">
+            </div>
+            <div [hidden]="addStudentEntityForm.controls.lastName.valid || (addStudentEntityForm.controls.lastName.pristine && !submitted)" class="alert alert-danger clear">
+                <div>Last Name is required.</div>
+            </div>
+        </div>        
+        <div class="form-group">
+            <div class="form-label">
+                <label>Roll Number</label>
+                <sup class="red">*</sup>
+            </div>
+            <div class="form-element">
+                <input type="text" formControlName="rollNo" [ngClass]="{'red-border-class': addStudentEntityForm.controls.rollNo.errors && (addStudentEntityForm.controls.rollNo.dirty||addStudentEntityForm.controls.rollNo.touched) }" (change) = "addStudentEntityForm.controls.rollNo.setValue(addStudentEntityForm.controls.rollNo.value.trim())">
+            </div>
+            <div [hidden]="addStudentEntityForm.controls.rollNo.valid || (addStudentEntityForm.controls.rollNo.pristine && !submitted)" class="alert alert-danger clear">
+                <div *ngIf = "!addStudentEntityForm.controls.rollNo.valid && addStudentEntityForm.controls.rollNo.hasError('required')">
+                    Roll Number is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label>Contact Number</label>
+                <sup class="red">*</sup>    
+            </div>
+            <div class="form-element">
+                <input type="text" formControlName="contact" [ngClass]="{'red-border-class': addStudentEntityForm.controls.contact.errors && (addStudentEntityForm.controls.contact.dirty||addStudentEntityForm.controls.contact.touched) }" (change) = "addStudentEntityForm.controls.contact.setValue(addStudentEntityForm.controls.contact.value.trim())">
+            </div>
+            <div [hidden]="addStudentEntityForm.controls.contact.valid || (addStudentEntityForm.controls.contact.pristine && !submitted)" class="alert alert-danger clear">
+                <div>Contact Number is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label>Section</label>
+                <sup class="red">*</sup>
+            </div>
+            <div class="form-element">
+                <select formControlName="section" [ngClass]="{'red-border-class': addStudentEntityForm.controls.section.errors && (addStudentEntityForm.controls.section.dirty||addStudentEntityForm.controls.section.touched) }" (change) = "addStudentEntityForm.controls.section.setValue(addStudentEntityForm.controls.section.value.trim())">
+                    <option *ngFor="let item of sectionArray" value= "{{item}}">{{item}}</option>
+                </select>
+            </div>
+            <div [hidden]="addStudentEntityForm.controls.section.valid || (addStudentEntityForm.controls.section.pristine && !submitted)" class="alert alert-danger clear">
+                <div>Section is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-label">
+                <label>Address</label>
+            </div>
+            <div class="form-element">
+                <textarea rows="4" cols="50" formControlName="address" [ngClass]="{'red-border-class': addStudentEntityForm.controls.address.errors && (addStudentEntityForm.controls.address.dirty||addStudentEntityForm.controls.address.touched) }" (change) = "addStudentEntityForm.controls.address.setValue(addStudentEntityForm.controls.address.value.trim())"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+            <div style="text-align: center;">
+                <button type="submit" class="btn-success" [disabled]="!addStudentEntityForm.valid">Submit</button>
+                <a class="cancel-button-modify" [routerLink]="['/dashboard']" ><span>Cancel</span></a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,27 @@
+.main-div {
+	border: 1px solid;
+    width: 40%;
+    margin: 50px auto;
+}
+.right-align {
+	text-align: right;
+	padding-right: 25px;
+	margin: 10px 0px;
+}
+.update-button {
+	border-radius: 20px ;
+	padding: 5px;
+	background-color: #5bb75b;
+	color: #fff;
+	cursor: pointer;
+}
+.add-button {
+	padding: 5px;
+	border-radius: 20px ;
+	background-color: #d6314c;
+	color: #fff;
+	cursor: pointer;
+}
+.fontsize35 {
+	font-size: 35px;
+}
